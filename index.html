@@ -6,16 +6,16 @@
 <title>HAN-STEF — Selected Work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* VOICE: architectural, warm, precise — a fabrication partner's portfolio
    IDEA: the page behaves like a well-made piece: reveals, joints, weight
    PICTURE: HAN-STEF's own photography, shown at honest scale
-   COLOUR and TYPE: paper, ink, stone, night blue; Inter Tight caps + Instrument Serif italic
+   COLOUR and TYPE: paper, ink, stone, night blue; one family, Inter Tight, in two voices
    LAYOUT: editorial bands, 6px white reveals between images, no image upscaled past ~1.2x */
 :root{
   --ink:#1C1A17;--paper:#F3EFE8;--stone:#E6E0D5;--night:#1A2430;--oak:#8A6843;--body:#4A453E;--mute:#7A7166;
-  --sans:'Inter Tight','Helvetica Neue',Arial,sans-serif;--serif:'Instrument Serif','Times New Roman',serif;
+  --sans:'Inter Tight','Helvetica Neue',Arial,sans-serif;
   --ease:cubic-bezier(.22,.61,.12,1);--reveal:6px;--pad:max(5vw,20px);
   color-scheme:light;
 }
@@ -34,13 +34,14 @@ a{color:inherit}
 .display{font-weight:600;font-size:clamp(52px,8.4vw,148px);line-height:.93;letter-spacing:-.012em;text-transform:uppercase;margin:0}
 .head{font-weight:600;font-size:clamp(36px,4.4vw,76px);line-height:1;letter-spacing:-.004em;text-transform:uppercase;margin:0;text-wrap:balance}
 .statement{font-weight:600;font-size:clamp(56px,8vw,128px);line-height:.95;letter-spacing:-.012em;text-transform:uppercase;margin:0}
-.sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(28px,2.6vw,46px);line-height:1.08;letter-spacing:-.005em;margin:18px 0 0}
+.sub{font-weight:400;font-size:clamp(22px,2.1vw,34px);line-height:1.2;letter-spacing:-.012em;color:#6B6358;margin:20px 0 0}
 .eyebrow{font-size:13px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--oak);margin:0 0 22px}
 .copy{color:var(--body);max-width:34em;margin:0 0 1.1em}
 .lead{color:var(--ink);font-weight:500;max-width:30em;margin:0 0 1.1em;font-size:clamp(17px,1.35vw,21px);line-height:1.5}
-.cap{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.3vw,21px);line-height:1.25;color:var(--mute);margin:12px 0 0}
+.cap{font-size:14px;line-height:1.4;letter-spacing:.01em;color:var(--mute);margin:14px 0 0}
 .dark .copy{color:#C9C2B6}.night .copy{color:#C3CBD4}.dark .eyebrow{color:#C2A47C}.night .eyebrow{color:#A9B6C4}.dark .cap,.night .cap{color:#A49B8E}
 .dark .lead,.night .lead{color:var(--paper)}
+.dark .sub,.night .sub{color:#B8AFA2}.hero .sub{color:#E6E0D5}
 
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);color:var(--paper);transition:background .6s var(--ease),color .6s var(--ease),padding .6s var(--ease)}
@@ -125,7 +126,7 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:24px;ma
 .lb.open img{transform:none}
 .lb img.held{filter:grayscale(1) contrast(1.08)}
 .lb .meta{display:flex;justify-content:space-between;gap:24px;width:min(100%,1100px);margin-top:18px;color:#A49B8E;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
-.lb .meta i{white-space:nowrap;font-family:var(--serif);font-size:20px;letter-spacing:0;text-transform:none;color:#E6E0D5}
+.lb .meta i{white-space:nowrap;font-style:normal;font-size:14px;letter-spacing:.01em;text-transform:none;color:#E6E0D5}
 .lb button{position:absolute;background:none;border:0;color:var(--paper);font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;min-width:44px;min-height:44px;padding:12px}
 .lb .x{top:16px;right:16px}.lb .pv{left:8px;top:50%;transform:translateY(-50%)}.lb .nx{right:8px;top:50%;transform:translateY(-50%)}
 button:focus-visible,a:focus-visible{outline:1px solid #C2A47C;outline-offset:4px}

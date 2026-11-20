@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAN-STEF — Selected Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* VOICE: architectural, warm, precise — a fabrication partner's portfolio
+   IDEA: the page behaves like a well-made piece: reveals, joints, weight
+   PICTURE: HAN-STEF's own photography, shown at honest scale
+   COLOUR and TYPE: paper, ink, stone, night blue; Inter Tight caps + Instrument Serif italic
+   LAYOUT: editorial bands, 6px white reveals between images, no image upscaled past ~1.2x */
+:root{
+  --ink:#1C1A17;--paper:#F3EFE8;--stone:#E6E0D5;--night:#1A2430;--oak:#8A6843;--body:#4A453E;--mute:#7A7166;
+  --sans:'Inter Tight','Helvetica Neue',Arial,sans-serif;--serif:'Instrument Serif','Times New Roman',serif;
+  --ease:cubic-bezier(.22,.61,.12,1);--reveal:6px;--pad:max(5vw,20px);
+  color-scheme:light;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+.band{padding:clamp(72px,10vw,160px) var(--pad);position:relative}
+.wrap{max-width:1560px;margin:0 auto}
+.dark{background:var(--ink);color:var(--paper)}
+.night{background:var(--night);color:var(--paper)}
+.stone{background:var(--stone)}
+
+/* type */
+.display{font-weight:600;font-size:clamp(52px,8.4vw,148px);line-height:.93;letter-spacing:-.012em;text-transform:uppercase;margin:0}
+.head{font-weight:600;font-size:clamp(36px,4.4vw,76px);line-height:1;letter-spacing:-.004em;text-transform:uppercase;margin:0;text-wrap:balance}
+.statement{font-weight:600;font-size:clamp(56px,8vw,128px);line-height:.95;letter-spacing:-.012em;text-transform:uppercase;margin:0}
+.sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(28px,2.6vw,46px);line-height:1.08;letter-spacing:-.005em;margin:18px 0 0}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--oak);margin:0 0 22px}
+.copy{color:var(--body);max-width:34em;margin:0 0 1.1em}
+.lead{color:var(--ink);font-weight:500;max-width:30em;margin:0 0 1.1em;font-size:clamp(17px,1.35vw,21px);line-height:1.5}
+.cap{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.3vw,21px);line-height:1.25;color:var(--mute);margin:12px 0 0}
+.dark .copy{color:#C9C2B6}.night .copy{color:#C3CBD4}.dark .eyebrow{color:#C2A47C}.night .eyebrow{color:#A9B6C4}.dark .cap,.night .cap{color:#A49B8E}
+.dark .lead,.night .lead{color:var(--paper)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);color:var(--paper);transition:background .6s var(--ease),color .6s var(--ease),padding .6s var(--ease)}
+nav.solid{background:rgba(243,239,232,.92);backdrop-filter:blur(10px);color:var(--ink);padding-block:12px}
+nav .mark{display:flex;align-items:center;gap:14px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.22em}
+nav .mark img{width:34px;height:33px;transition:filter .6s}
+nav.solid .mark img{filter:invert(1) brightness(.2)}
+nav ul{display:flex;gap:clamp(16px,2.4vw,40px);list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:12px 0;position:relative}
+nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+nav ul a:hover::after,nav ul a:focus-visible::after{transform:scaleX(1)}
+
+/* hero */
+.hero{height:100svh;min-height:560px;position:relative;overflow:hidden;background:var(--ink);color:var(--paper)}
+.hero .bg{position:absolute;inset:-12px;will-change:transform;transition:transform 1.4s var(--ease)}
+.hero .bg img{width:100%;height:100%;object-fit:cover;animation:develop 2.6s .2s ease-out both,settle 1.8s var(--ease) both}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,18,15,.82),rgba(20,18,15,.3) 50%,rgba(20,18,15,.35))}
+.hero .txt{position:absolute;left:var(--pad);right:var(--pad);bottom:clamp(40px,8vh,96px);z-index:2}
+.hero .tag{position:absolute;right:var(--pad);top:clamp(80px,12vh,120px);z-index:2;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;text-align:right}
+@keyframes develop{from{filter:grayscale(1) contrast(1.06)}}
+@keyframes settle{from{transform:scale(1.06)}}
+
+/* split layouts */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:stretch}
+.split.wide{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.split .col{display:flex;flex-direction:column;justify-content:space-between;gap:48px}
+.cap-n{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--mute);margin-top:40px}
+.bleed-r{margin-right:calc(-1 * var(--pad))}
+
+/* photographs */
+figure{margin:0}
+.ph{position:relative;overflow:hidden;background:#d9d2c6}
+.ph img{width:100%;height:100%;object-fit:cover;transition:filter 1.1s var(--ease),transform 1.6s var(--ease)}
+.zoom{cursor:zoom-in}
+@media (hover:hover){.mono .ph:hover img,.mono.ph:hover img{filter:grayscale(1) contrast(1.08)}}
+.row{display:flex;gap:var(--reveal)}
+.row>*{flex:1 1 0}
+
+/* reveal on scroll */
+.r{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.r.in{opacity:1;transform:none}
+.ph.r{opacity:1;transform:none;clip-path:inset(10% 0 0 0);transition:clip-path 1.4s var(--ease);transition-delay:calc(var(--i,0)*110ms)}
+.ph.r img{transform:scale(1.06)}
+.ph.r.in{clip-path:inset(0 0 0 0)}
+.ph.r.in img{transform:scale(1)}
+.dev img{filter:grayscale(1)}
+.dev.in img{filter:none;transition:filter 2.2s ease-out .3s,transform 1.6s var(--ease)}
+
+/* detail */
+.details{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--reveal);max-width:1600px;margin:0 auto}
+.details .ph{aspect-ratio:348/442}
+
+/* process */
+.dwg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--reveal)}
+.dwg .ph{aspect-ratio:5/4;background:#FBFAF7}
+.dwg .ph.plate img{object-fit:contain;padding:8%}
+
+/* management */
+.pm{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);margin-top:clamp(48px,6vw,96px)}
+.pm dl{margin:0}
+.pm dt{font-weight:600;font-size:14px;letter-spacing:.2em;text-transform:uppercase;border-top:1px solid rgba(28,26,23,.25);padding-top:24px}
+.pm dd{margin:10px 0 36px;color:var(--body);font-size:clamp(17px,1.35vw,21px)}
+
+/* close */
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--reveal);max-width:1700px;margin:0 auto}
+.strip .ph{aspect-ratio:311/531}
+.closing{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(32px,6vw,120px);align-items:end;max-width:1700px;margin:clamp(56px,7vw,112px) auto 0}
+.cta{display:inline-flex;align-items:center;gap:16px;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#D9BE96;padding:14px 0;border-bottom:1px solid rgba(217,190,150,.45)}
+.cta span{display:inline-block;transition:transform .7s var(--ease)}
+.cta:hover span{transform:translateX(10px)}
+.contact p{margin:0 0 6px;color:#C9C2B6}
+footer{display:flex;justify-content:space-between;align-items:center;gap:24px;margin:clamp(64px,8vw,120px) auto 0;max-width:1700px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8C8377}
+
+/* cursor */
+.cursor{position:fixed;left:0;top:0;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:1px solid rgba(243,239,232,.9);color:var(--paper);display:grid;place-items:center;font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;pointer-events:none;z-index:30;opacity:0;transform:scale(.6);transition:opacity .4s var(--ease),transform .5s var(--ease);mix-blend-mode:difference}
+.cursor.on{opacity:1;transform:scale(1)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:40;background:#14120F;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(16px,4vw,56px);opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility 0s .6s}
+.lb.open{opacity:1;visibility:visible;transition:opacity .6s var(--ease)}
+.lb img{max-height:82vh;object-fit:contain;transform:scale(.965);transition:transform .8s var(--ease),filter .9s var(--ease);user-select:none;-webkit-user-drag:none;touch-action:none}
+.lb.open img{transform:none}
+.lb img.held{filter:grayscale(1) contrast(1.08)}
+.lb .meta{display:flex;justify-content:space-between;gap:24px;width:min(100%,1100px);margin-top:18px;color:#A49B8E;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.lb .meta i{white-space:nowrap;font-family:var(--serif);font-size:20px;letter-spacing:0;text-transform:none;color:#E6E0D5}
+.lb button{position:absolute;background:none;border:0;color:var(--paper);font:500 12px var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;min-width:44px;min-height:44px;padding:12px}
+.lb .x{top:16px;right:16px}.lb .pv{left:8px;top:50%;transform:translateY(-50%)}.lb .nx{right:8px;top:50%;transform:translateY(-50%)}
+button:focus-visible,a:focus-visible{outline:1px solid #C2A47C;outline-offset:4px}
+
+@media (max-width:900px){
+  .split,.split.wide,.pm,.closing{grid-template-columns:minmax(0,1fr)}
+  .split.rev .col{order:2}
+  .bleed-r{margin-right:0}
+  .details{grid-template-columns:repeat(2,minmax(0,1fr))}
+  nav ul{display:none}
+  .hero .tag{display:none}
+}
+@media (max-width:600px){
+  .dwg{grid-template-columns:minmax(0,1fr)}
+  .strip{grid-template-columns:repeat(5,minmax(160px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;margin-right:calc(-1*var(--pad))}
+  .strip .ph{scroll-snap-align:start}
+  .row.keep{flex-direction:row}
+  .row:not(.keep){flex-direction:column}
+  .lb .pv,.lb .nx{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .r,.ph.r{opacity:1;transform:none;clip-path:none}
+  .ph.r img{transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav" aria-label="Sections">
+  <a class="mark" href="#top"><img src="img/logo-w.png" alt="Hanson &amp; Stefanelli">HAN-STEF</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#founders">Founders</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg" id="heroBg"><img src="img/hero.jpg" alt="Sunken living room with a curved white oak bookshelf and sofa beside a brick fireplace and grand piano" width="1728" height="972"></div>
+  <p class="tag">Specialty design · Fabrication · Installation</p>
+  <div class="txt">
+    <h1 class="display">Good design.<br>Built well.</h1>
+    <p class="sub">Your partners for specialty furnishings &amp; interiors.</p>
+  </div>
+</header>
+
+<main>
+<section class="band" id="approach">
+  <div class="wrap split">
+    <figure class="ph r zoom" style="max-width:740px;aspect-ratio:641/828" data-cap="On site / Slatted screen installation"><img src="img/onsite.jpg" alt="The two founders installing a slatted wood screen at a floor-to-ceiling window" loading="lazy"></figure>
+    <div class="col">
+      <div>
+        <p class="eyebrow r">Approach</p>
+        <h2 class="head r" style="--i:1">Seamless delivery</h2>
+        <p class="sub r" style="--i:2">Single point of contact</p>
+      </div>
+      <div>
+        <p class="lead r">Your single-source for design, fabrication, and installation of specialty work.</p>
+        <p class="copy r" style="--i:1">We combine backgrounds in architecture, contracting, and fine fabrication into one place.</p>
+        <p class="copy r" style="--i:2">Curated collaboration with general contractors, architects, designers, owners’ representatives, and private clients.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="artistry" style="padding-top:0">
+  <div class="wrap split rev">
+    <div class="col">
+      <div>
+        <p class="eyebrow r">Artistry</p>
+        <h2 class="head r" style="--i:1">A furniture maker’s eye for architecture.</h2>
+        <p class="sub r" style="--i:2">Where artistry meets craft</p>
+      </div>
+      <div>
+        <p class="lead r">Every project is a unique opportunity to bring artistry to life.</p>
+        <p class="copy r" style="--i:1">Lean, hands-on, owner-driven work means you benefit from our personal attention with every material selection and detail.</p>
+        <p class="copy r" style="--i:2">Beyond technical details, we obsess over proportion, composition, color, texture, and grain.</p>
+      </div>
+    </div>
+    <figure class="mono r" style="max-width:860px">
+      <div class="ph dev r zoom" style="aspect-ratio:731/812" data-cap="White oak stair railing / Rustic Canyon, CA"><img src="img/stair.jpg" alt="White oak stair railing curving into a solid newel against a board-formed plywood wall" loading="lazy"></div>
+      <figcaption class="cap">White oak stair railing / Rustic Canyon, CA</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band dark" id="work" aria-label="In detail">
+  <p class="eyebrow r" style="max-width:1600px;margin-inline:auto">In detail</p>
+  <div class="details mono">
+    <figure><div class="ph dev r zoom" data-cap="Curvature &amp; grain"><img src="img/d-curve.png" alt="White oak stair rail curving into its newel, grain following the bend" loading="lazy"></div><figcaption class="cap">Curvature &amp; grain</figcaption></figure>
+    <figure><div class="ph dev r zoom" style="--i:1" data-cap="Construction &amp; form"><img src="img/d-joint.png" alt="Underside of a walnut table showing a bolted joinery block where leg meets apron" loading="lazy"></div><figcaption class="cap">Construction &amp; form</figcaption></figure>
+    <figure><div class="ph dev r zoom" style="--i:2" data-cap="Rhythm &amp; texture"><img src="img/d-rib.png" alt="Ribbed oak millwork meeting a flat oak panel with an integrated brass light reveal" loading="lazy"></div><figcaption class="cap">Rhythm &amp; texture</figcaption></figure>
+    <figure><div class="ph dev r zoom" style="--i:3" data-cap="Light &amp; material"><img src="img/d-light.png" alt="Blue lacquered cabinetry with a recessed linear light" loading="lazy"></div><figcaption class="cap">Light &amp; material</figcaption></figure>
+  </div>
+</section>
+
+<section class="band" id="materials">
+  <div class="wrap">
+    <p class="eyebrow r">Materials</p>
+    <h2 class="head r" style="--i:1;margin-bottom:clamp(32px,4vw,64px)">Material, form and finish</h2>
+    <div class="row keep mono" style="height:clamp(360px,52vw,760px)">
+      <div class="ph r zoom" data-cap="White oak stair rail"><img src="img/m1.jpg" alt="White oak stair rail and newel" loading="lazy"></div>
+      <div class="ph r zoom" style="--i:1" data-cap="Solid walnut table"><img src="img/m2.jpg" alt="Solid walnut table with sculpted trestle leg" loading="lazy"></div>
+      <div class="ph r zoom" style="--i:2" data-cap="Paint grade / Architectural lighting"><img src="img/m3.jpg" alt="Paint-grade niche with blue edge and integrated lighting" loading="lazy"></div>
+      <div class="ph r zoom" style="--i:3" data-cap="Cabinetry with lit niche"><img src="img/m4.jpg" alt="Walnut and lacquer cabinetry with a lit amber niche" loading="lazy"></div>
+      <div class="ph r zoom" style="--i:4" data-cap="Burl cabinet doors"><img src="img/m5.jpg" alt="Cabinet doors faced in figured burl with live edges" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="millwork" style="padding-top:0">
+  <div class="wrap">
+    <p class="eyebrow r">Millwork</p>
+    <h2 class="head r" style="--i:1;margin-bottom:clamp(32px,4vw,64px)">Furniture-grade millwork</h2>
+    <div class="split wide">
+      <div class="row keep mono" style="max-width:1000px">
+        <figure><div class="ph r zoom" style="aspect-ratio:436/630" data-cap="Sunken living room / Bookshelf &amp; sofa"><img src="img/sunken.jpg" alt="Sunken living room with curved oak bookshelf and sofa under skylights" loading="lazy"></div><figcaption class="cap">Sunken living room / Bookshelf &amp; sofa</figcaption></figure>
+        <figure><div class="ph r zoom" style="--i:1;aspect-ratio:436/630" data-cap="Dressing room / Island storage with glass top"><img src="img/dressing.jpg" alt="Dressing room with ribbed oak island and glass top" loading="lazy"></div><figcaption class="cap">Dressing room / Island storage with glass top</figcaption></figure>
+      </div>
+      <div>
+        <p class="lead r">Experts in solid and hardwood construction, understanding the nuance of working with living materials.</p>
+        <p class="copy r" style="--i:1">We bring the sensibilities of furniture craft and detailing to all aspects of interior design.</p>
+        <p class="copy r" style="--i:2">Our process, from initial concept through finishing, supports flawless execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band stone" id="process">
+  <div class="wrap">
+    <p class="eyebrow r">Process</p>
+    <h2 class="head r" style="--i:1">Aligning expectations</h2>
+    <p class="sub r" style="--i:2;margin-bottom:clamp(32px,4vw,64px)">Shop drawings &amp; submittals</p>
+    <div class="dwg">
+      <figure><div class="ph plate r zoom" data-cap="Shop drawing / Built-in wall unit"><img src="img/dwg1.jpg" alt="Axonometric shop drawing of a built-in wall unit with numbered callouts" loading="lazy"></div><p class="copy r" style="margin-top:20px">Holistic modeling encompasses site conditions, adjacencies, and fabrication details.</p></figure>
+      <figure><div class="ph plate r zoom" style="--i:1" data-cap="Assembly drawing / Stone-topped pedestal"><img src="img/dwg2.jpg" alt="Exploded assembly drawing of a stone-topped pedestal table" loading="lazy"></div><p class="copy r" style="margin-top:20px">Assembly details and fabrication sequencing are resolved before any parts are cut.</p></figure>
+      <figure><div class="ph r zoom" style="--i:2" data-cap="Material and finish samples"><img src="img/samples.jpg" alt="Wood finish samples laid out with labelled approval cards" loading="lazy"></div><p class="copy r" style="margin-top:20px">Comprehensive material and finish samples ensure expectations are understood and met.</p></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band night" id="coordination">
+  <div class="wrap split">
+    <figure style="max-width:740px"><div class="ph r zoom" style="aspect-ratio:634/792" data-cap="Paint grade / Architectural lighting"><img src="img/blue.jpg" alt="Paint-grade niche with blue-edged shelves lit by concealed architectural lighting" loading="lazy"></div><figcaption class="cap">Paint grade / Architectural lighting</figcaption></figure>
+    <div class="col">
+      <div>
+        <p class="eyebrow r">Coordination</p>
+        <h2 class="head r" style="--i:1">Cross-trade leadership</h2>
+      </div>
+      <div>
+        <p class="lead r">We plan, coordinate, and own related specialty work — streamlining communication and delivery.</p>
+        <p class="copy r" style="--i:1">Stone, tile, metal, lighting, MEP integration, upholstery, and finishes are coordinated with the broader project, ensuring comprehensive detailing.</p>
+        <p class="copy r" style="--i:2">Beyond traditional woodworkers, we drive the entire scope of specialty projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="management">
+  <div class="wrap">
+    <p class="eyebrow r">Project management</p>
+    <h2 class="statement r" style="--i:1">No surprises.</h2>
+    <p class="sub r" style="--i:2">Exceptional project management</p>
+    <div class="pm">
+      <figure><div class="ph r zoom" style="aspect-ratio:778/607;max-width:900px" data-cap="Library / Window seat"><img src="img/library.jpg" alt="Black and white photograph of a library with built-in shelving and an upholstered window seat" loading="lazy"></div></figure>
+      <dl>
+        <dt class="r">Pricing</dt><dd class="r">Pricing that is upfront, accurate, &amp; comprehensive.</dd>
+        <dt class="r">Scheduling</dt><dd class="r">Schedules that are realistic, achievable, &amp; tracked.</dd>
+        <dt class="r">Invoicing</dt><dd class="r">SOV-based invoicing for clarity and accuracy.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="craft" style="padding-top:0">
+  <div class="wrap split rev">
+    <div class="col">
+      <div>
+        <p class="eyebrow r">Accountability</p>
+        <h2 class="head r" style="--i:1">Craftsmanship from start to finish</h2>
+      </div>
+      <div>
+        <p class="lead r">We bring fabrication, finishing, and installation together under one accountable team.</p>
+        <p class="copy r" style="--i:1">Our work is guided by care for every detail, at all stages of the process.</p>
+        <p class="copy r" style="--i:2">Our attention to detail extends to close-out with complete as-built documentation and care and maintenance instructions.</p>
+      </div>
+    </div>
+    <div class="row keep mono bleed-r">
+      <div class="ph dev r zoom" style="aspect-ratio:392/682" data-cap="Display cases"><img src="img/cases.jpg" alt="Brass-framed glass display cases on white plinths before tall steel windows" loading="lazy"></div>
+      <div class="ph dev r zoom" style="--i:1;aspect-ratio:392/682" data-cap="Window seat / Built-in shelving"><img src="img/seat.jpg" alt="Upholstered window seat framed by built-in bookshelves and a round mirror" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band stone" id="founders">
+  <div class="wrap split">
+    <figure class="ph r zoom" style="max-width:740px;aspect-ratio:641/828" data-cap="The founders"><img src="img/founders.jpg" alt="The two founders sitting side by side on a plywood stair they built" loading="lazy"></figure>
+    <div class="col">
+      <div>
+        <p class="eyebrow r">The founders</p>
+        <h2 class="head r" style="--i:1">From the first drawing to the final detail.</h2>
+        <p class="sub r" style="--i:2">Licensed, bonded, and insured.</p>
+      </div>
+      <div>
+        <p class="copy r">We are fully licensed, bonded, and insured general contractors.</p>
+        <p class="lead r" style="--i:1">Generalist experience, specialist approach.</p>
+        <p class="copy r" style="--i:2">Experts at framing, MEP, decorative finishes, and cross-trade coordination.</p>
+        <p class="cap-n r" style="--i:3">California license — CSLB #1145719</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band dark" id="contact">
+  <div class="strip mono">
+    <div class="ph dev r zoom" data-cap="Burl cabinet"><img src="img/c1.jpg" alt="Cabinet faced in figured burl with live edges" loading="lazy"></div>
+    <div class="ph dev r zoom" style="--i:1" data-cap="Display cases"><img src="img/c2.jpg" alt="Brass-framed display cases before steel windows" loading="lazy"></div>
+    <div class="ph dev r zoom" style="--i:2" data-cap="Window seat"><img src="img/c3.jpg" alt="Window seat with built-in bookshelves" loading="lazy"></div>
+    <div class="ph dev r zoom" style="--i:3" data-cap="Walnut table"><img src="img/c4.jpg" alt="Solid walnut table with sculpted trestle leg" loading="lazy"></div>
+    <div class="ph dev r zoom" style="--i:4" data-cap="Cabinetry with lit niche"><img src="img/c5.jpg" alt="Walnut and lacquer cabinetry with a lit amber niche" loading="lazy"></div>
+  </div>
+  <div class="closing">
+    <div>
+      <h2 class="head r" style="font-size:clamp(40px,5.4vw,96px)">Your hands-on, collaborative partner.</h2>
+      <p class="copy r" style="--i:1;margin-top:28px;font-size:clamp(17px,1.35vw,21px)">For specialty design, fabrication and installation. From individual pieces to complex architectural projects.</p>
+    </div>
+    <div class="contact r" style="--i:2">
+      <a class="cta" href="mailto:general@han-stef.com">Let’s collaborate <span aria-hidden="true">→</span></a>
+      <div style="margin-top:28px">
+        <p>general@han-stef.com</p>
+        <p>1535 Paloma Street, Los Angeles, CA 90021</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>Hanson &amp; Stefanelli · CSLB #1145719</span>
+    <img src="img/logo-w.png" alt="Hanson &amp; Stefanelli logo" width="44" height="42">
+  </footer>
+</section>
+</main>
+
+<div class="cursor" id="cursor" aria-hidden="true">Closer</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photograph" tabindex="-1">
+  <button class="x" id="lbx" aria-label="Close">Close</button>
+  <button class="pv" id="lbp" aria-label="Previous">←</button>
+  <button class="nx" id="lbn" aria-label="Next">→</button>
+  <img id="lbi" alt="">
+  <div class="meta"><i id="lbc"></i><span id="lbh">Hold to see in monochrome</span></div>
+</div>
+
+<script>
+{
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const buzz = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) {} };
+
+/* nav */
+const nav = document.getElementById('nav');
+const hero = document.getElementById('top');
+const navObs = new IntersectionObserver(([e]) => nav.classList.toggle('solid', !e.isIntersecting), { rootMargin: '-72px 0px 0px 0px' });
+navObs.observe(hero);
+
+/* reveals */
+const revObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revObs.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+document.querySelectorAll('.r').forEach(el => reduce ? el.classList.add('in') : revObs.observe(el));
+/* once a photograph has developed, hand it over to the hover interaction */
+const devObs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { devObs.unobserve(e.target); setTimeout(() => e.target.classList.remove('dev'), reduce ? 0 : 2800); } }), { threshold: .08 });
+document.querySelectorAll('.dev').forEach(el => devObs.observe(el));
+
+/* hero responds to presence */
+const bg = document.getElementById('heroBg');
+if (fine && !reduce) hero.addEventListener('pointermove', e => {
+  const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+  bg.style.transform = `translate(${-x * 10}px, ${-y * 8}px)`;
+});
+
+/* cursor with weight */
+const cur = document.getElementById('cursor');
+let tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+const loop = () => { cx += (tx - cx) * .16; cy += (ty - cy) * .16; cur.style.left = cx + 'px'; cur.style.top = cy + 'px'; raf = (Math.abs(tx - cx) + Math.abs(ty - cy) > .3) ? requestAnimationFrame(loop) : 0; };
+if (fine) {
+  addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; if (reduce) { cx = tx; cy = ty; cur.style.left = cx + 'px'; cur.style.top = cy + 'px'; } else if (!raf) raf = requestAnimationFrame(loop); }, { passive: true });
+  document.querySelectorAll('.zoom').forEach(z => { z.addEventListener('pointerenter', () => cur.classList.add('on')); z.addEventListener('pointerleave', () => cur.classList.remove('on')); });
+}
+
+/* lightbox */
+const zooms = [...document.querySelectorAll('.zoom')];
+const lbm = document.querySelector('.lb .meta'), lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc'), lbh = document.getElementById('lbh');
+let idx = 0, last = null;
+const show = i => {
+  idx = (i + zooms.length) % zooms.length;
+  const src = zooms[idx].querySelector('img');
+  lbi.src = src.currentSrc || src.src; lbi.alt = src.alt;
+  lbc.innerHTML = zooms[idx].dataset.cap || '';
+  const size = () => { const w = Math.min(lbi.naturalWidth * 1.25, innerWidth * .9, lbi.naturalWidth / lbi.naturalHeight * innerHeight * .82); lbi.style.width = w + 'px'; lbm.style.width = Math.max(w, 460) + 'px'; };
+  lbi.complete ? size() : lbi.onload = size;
+};
+const open = i => { last = document.activeElement; show(i); lb.classList.add('open'); lb.focus(); buzz(6); document.body.style.overflow = 'hidden'; cur.classList.remove('on'); };
+const close = () => { lb.classList.remove('open'); buzz(4); document.body.style.overflow = ''; last && last.focus && last.focus(); };
+zooms.forEach((z, i) => { z.tabIndex = 0; z.setAttribute('role', 'button'); z.setAttribute('aria-label', 'Enlarge: ' + (z.querySelector('img').alt)); z.addEventListener('click', () => open(i)); z.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } }); });
+document.getElementById('lbx').onclick = close;
+document.getElementById('lbp').onclick = e => { e.stopPropagation(); show(idx - 1); buzz(3); };
+document.getElementById('lbn').onclick = e => { e.stopPropagation(); show(idx + 1); buzz(3); };
+lb.addEventListener('click', e => { if (e.target === lb) close(); });
+addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') show(idx + 1); if (e.key === 'ArrowLeft') show(idx - 1); });
+
+/* press and hold: see the form without colour */
+let holdT = 0;
+lbi.addEventListener('pointerdown', e => { e.preventDefault(); holdT = setTimeout(() => { lbi.classList.add('held'); buzz(8); }, 180); });
+['pointerup', 'pointerleave', 'pointercancel'].forEach(t => lbi.addEventListener(t, () => { clearTimeout(holdT); lbi.classList.remove('held'); }));
+lbi.addEventListener('contextmenu', e => e.preventDefault());
+lbh.textContent = fine ? 'Press and hold to see in monochrome' : 'Touch and hold to see in monochrome';
+
+/* swipe between images on touch */
+let sx = null;
+lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+lb.addEventListener('touchend', e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 60) { show(idx + (dx < 0 ? 1 : -1)); buzz(3); } sx = null; });
+}
+</script>
+</body>
+</html>
